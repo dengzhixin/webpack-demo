@@ -1,9 +1,17 @@
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const base = require('./webpack.config.base.js')
+
 module.exports = {
-    ...base,
-    mode: 'development',
+    entry: './src/index.js',
+    output: {
+        filename: '[name].[contentHash].js'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: "Webpack App",
+            template: "./src/assets/index.html"
+        })
+    ],
     module: {
         rules: [
             {

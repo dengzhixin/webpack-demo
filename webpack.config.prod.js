@@ -1,18 +1,12 @@
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const base = require('./webpack.config.base.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
-    output: {
-        filename: '[name].[contentHash].js'
-    },
+    ...base,
+    mode: 'production',
+
     plugins: [
-        new HtmlWebpackPlugin({
-            title: "Webpack App",
-            template: "./src/assets/index.html"
-        }),
+        ...base.plugins,
         new MiniCssExtractPlugin({
             filename: '[name].[contentHash].css',
             chunkFilename: '[id].[contentHash].css',
@@ -31,7 +25,6 @@ module.exports = {
                     },
                     'css-loader',
                 ],
-                // use: ['style-loader', 'css-loader'],
             },
         ],
     },
