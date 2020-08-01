@@ -5,6 +5,6 @@ mv dist/* ./ &&
 rm -rg dist ;
 git add . &&
 git commit -m 'autoDeploy' &&
-git push
+git push &&
 git checkout -
 
